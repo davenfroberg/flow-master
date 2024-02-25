@@ -1,8 +1,8 @@
 CXX = g++
 CXXFLAGS = -std=c++11 -Wall
 
-SRCS = Node.cpp solve.cpp
-OBJS = $(SRCS:.cpp=.o)
+SRCS = src/Node.cpp src/solve.cpp src/LinkedGrid.cpp
+OBJS = $(SRCS:src/%.cpp=obj/%.o)
 
 TARGET = solve
 
@@ -11,7 +11,7 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
-%.o: %.cpp
+obj/%.o: src/%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:

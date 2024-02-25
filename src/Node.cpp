@@ -56,11 +56,18 @@ void Node::setRight(Node *right) {
     Node::right = right;
 }
 
-Node::Node(NodeType type, bool startNode, bool endNode, bool emptyNode) {
-    validateArguments(type, startNode, endNode, emptyNode);
+int Node::getCellNumber() const {
+    return cellNumber;
+}
+
+Node::Node(NodeType type, bool startNode, bool endNode, int cellNumber) {
+    Node::cellNumber = cellNumber;
+
+    bool empty = type == NodeType::EMPTY;
+    validateArguments(type, startNode, endNode, empty);
 
     Node::type = type;
     Node::startNode = startNode;
     Node::endNode = endNode;
-    Node::emptyNode = emptyNode;
+    Node::emptyNode = empty;
 }

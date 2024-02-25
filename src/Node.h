@@ -22,6 +22,7 @@ private:
     Node *down;
     Node *left;
     Node *right;
+    int cellNumber;
 
     static void validateArguments(NodeType type, bool start, bool end, bool empty) {
         if (start && (end || empty))
@@ -35,7 +36,7 @@ private:
     };
 
 public:
-    Node(NodeType type, bool startNode, bool endNode, bool emptyNode);
+    Node(NodeType type, bool startNode, bool endNode, int cellNumber);
 
     NodeType getType() const;
 
@@ -64,6 +65,8 @@ public:
     Node *getRight() const;
 
     void setRight(Node *right);
+
+    int getCellNumber() const;
 };
 
 #endif //FLOW_MASTER_NODE_H
